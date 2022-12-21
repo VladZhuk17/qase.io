@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="2" name="Smoke" parallel="classes">
+    <test name="Login Page Test">
+        <classes>
+            <class name="qase.io.tests.UI.LoginPageTest"/>
+            <parameter name="userEmail" value="vladzhuk091193@gmail.com"></parameter>
+            <parameter name="userPassword" value="Pp28092019"></parameter>
+        </classes>
+    </test>
+    <test name="Project Page Test">
+        <classes>
+            <class name="qase.io.tests.UI.ProjectsPageTest"/>
+            <parameter name="projectName" value="main"></parameter>
+            <parameter name="projectCode" value="puma"></parameter>
+            <parameter name="projectsDescription" value=""></parameter>
+        </classes>
+    </test>
+</suite>
+
