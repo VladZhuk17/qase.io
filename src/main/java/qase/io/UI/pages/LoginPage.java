@@ -7,6 +7,7 @@ import qase.io.UI.model.User;
 public class LoginPage extends BasePage {
 
     private static final String URL_LOGIN_PAGE = "https://app.qase.io/login";
+    private static final String URL_PROJECTS_PAGE = "https://app.qase.io/projects";
 
     @FindBy(xpath = "//input[@id='inputEmail']")
     private WebElement email;
@@ -37,9 +38,5 @@ public class LoginPage extends BasePage {
 
     public void clickOnButtonLogin() {
         buttonLogin.click();
-    }
-
-    public void clickOnButtonSignUp() {
-        buttonSignUp.click();
     }
 }

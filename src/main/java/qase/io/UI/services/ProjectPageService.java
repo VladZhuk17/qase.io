@@ -5,14 +5,12 @@ import qase.io.UI.model.Project;
 import qase.io.UI.pages.ProjectsPage;
 
 public class ProjectPageService {
+
+    private ProjectsPage projectsPage;
+
     @Step("Create new project")
-    public ProjectsPage createNewProject (String projectsName, String projectsCode, String projectsDescription){
-        Project project = Project.builder()
-                .projectName(projectsName)
-                .projectCode(projectsCode)
-                .description(projectsDescription)
-                .build();
-        ProjectsPage projectsPage = new ProjectsPage();
+    public ProjectsPage createNewProject (Project project){
+        projectsPage = new ProjectsPage();
         projectsPage.clickOnButtonCreateNewProject()
                 .fillProjectNameField(project.getProjectName())
                 .fillProjectCodeField(project.getProjectCode())
@@ -22,12 +20,13 @@ public class ProjectPageService {
     }
 
     @Step("Delete project")
-    public ProjectsPage deleteProject (String projectsName){
-        ProjectsPage projectsPage = new ProjectsPage();
+    public ProjectsPage deleteProject (Project project){
+        projectsPage = new ProjectsPage();
         projectsPage.openProjectsPage()
-                .clickOnProjectDropdown(projectsName)
-                .clickOnButtonDelete(projectsName);
+                .clickOnProjectDropdown(project)
+                .clickOnButtonDelete(project).clickOnButtonAcceptDeleteProject();
         return new ProjectsPage();
-
     }
+
+
 }

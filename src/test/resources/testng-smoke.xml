@@ -14,8 +14,24 @@
             <class name="qase.io.tests.UI.ProjectsPageTest"/>
             <parameter name="projectName" value="main"></parameter>
             <parameter name="projectCode" value="puma"></parameter>
-            <parameter name="projectsDescription" value=""></parameter>
+            <parameter name="projectsDescription" value="dfdsfsdf"></parameter>
+            <parameter name="projectForDelete" value="main"></parameter>
+        </classes>
+    </test>
+    <test name="Invite Page Test">
+        <classes>
+            <class name="qase.io.tests.UI.InvitesPageTest"/>
+            <parameter name="emailMember" value="main@mail.com"></parameter>
+            <parameter name="nameMember" value="Misha"></parameter>
+            <parameter name="roleTitleMember" value="Lead QA"></parameter>
+        </classes>
+    </test>
+    <test name="Group Page Test">
+        <classes>
+            <class name="qase.io.tests.UI.GroupsPageTest"/>
+            <parameter name="groupTitle" value="research group"></parameter>
+            <parameter name="groupDescription" value="they investigate what has not been investigated"></parameter>
+            <parameter name="groupForDelete" value="research group"></parameter>
         </classes>
     </test>
 </suite>
-

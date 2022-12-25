@@ -1,15 +1,18 @@
 package qase.io.tests.UI;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import qase.io.UI.model.Project;
 import qase.io.UI.model.User;
 import qase.io.UI.services.LoginPageService;
 import qase.io.UI.services.ProjectPageService;
 
 public class ProjectsPageTest extends BaseTest {
+
+    private ProjectPageService projectPageService;
+
     @BeforeClass
     public void login() {
         LoginPageService loginPageService = new LoginPageService();
@@ -19,19 +22,21 @@ public class ProjectsPageTest extends BaseTest {
 
     @Test(description = "Create new project")
     @Parameters({"projectName", "projectCode", "projectsDescription"})
-    public void createNewProjectTest(String projectName, String projectCode, String projectsDescription) {
-        ProjectPageService projectPageService = new ProjectPageService();
-        projectPageService.createNewProject(projectName, projectCode, projectsDescription).openProjectsPage();
-        String actual = driver.findElement(By.xpath("//a[text()='" + projectName + "']")).getText();
-        String expected = projectName;
-        Assert.assertEquals(actual, expected);
+    public void verifyCreateNewProjectTest(String projectName, String projectCode, String projectsDescription) {
+        Project project = Project.builder().projectName(projectName).projectCode(projectCode).description(projectsDescription).build();
+        projectPageService = new ProjectPageService();
+        boolean actualProjectName = projectPageService.createNewProject(project)
+                .openProjectsPage()
+                .isSuccessfulCreateProject(project.getProjectName());
+        Assert.assertTrue(actualProjectName);
     }
 
     @Test
-    @Parameters({"projectName"})
-    public void deleteProjectTest(String projectName) {
-        ProjectPageService projectPageService = new ProjectPageService();
-        projectPageService.deleteProject(projectName);
-
+    @Parameters({"projectForDelete"})
+    public void verifyDeleteProjectTest(String projectForDelete) {
+        Project project = Project.builder().projectName(projectForDelete).build();
+        projectPageService = new ProjectPageService();
+        boolean actualResult = projectPageService.deleteProject(project).isSuccessfulDeleteProject(projectForDelete);
+        Assert.assertFalse(actualResult);
     }
 }

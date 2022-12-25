@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class User {
+public class Member {
     private String email;
-    private String password;
-
+    private String name;
+    private String roleTitle;
 }
