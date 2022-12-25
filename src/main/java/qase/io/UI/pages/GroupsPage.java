@@ -76,5 +76,4 @@ public class GroupsPage extends BasePage {
         buttonDeleteGroup.click();
         return this;
     }
-
 }

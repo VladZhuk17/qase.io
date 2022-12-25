@@ -2,12 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite thread-count="2" name="Smoke" parallel="classes">
-    <test name="Group Page Test">
+    <test name="Project Page Test">
         <classes>
-            <class name="qase.io.tests.UI.RepositoryPageTest"/>
-            <parameter name="projectCode" value="NP"></parameter>
-            <parameter name="suiteName" value="new suite"></parameter>
-            <parameter name="suiteNameForDelete" value="new suite"></parameter>
+            <class name="qase.io.tests.UI.ProjectsPageTest"/>
+            <parameter name="projectName" value="main"></parameter>
+            <parameter name="projectCode" value="puma"></parameter>
+            <parameter name="projectsDescription" value="dfdsfsdf"></parameter>
+            <parameter name="projectForDelete" value="main"></parameter>
         </classes>
     </test>
 </suite>

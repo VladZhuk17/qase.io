@@ -93,7 +93,7 @@ public class RepositoryPage extends BasePage {
     }
 
     public boolean isSuccessfulDeleteSuite() {
-        boolean isSuccessfulCreateSuite = waitElement(textIsSuccessfullyDeleteMessage).isDisplayed();
+        boolean isSuccessfulDeleteSuite = waitElement(textIsSuccessfullyDeleteMessage).isDisplayed();
         return true;
     }
 }

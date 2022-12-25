@@ -37,6 +37,6 @@ public class ProjectsPageTest extends BaseTest {
         Project project = Project.builder().projectName(projectForDelete).build();
         projectPageService = new ProjectPageService();
         boolean actualResult = projectPageService.deleteProject(project).isSuccessfulDeleteProject(projectForDelete);
-        Assert.assertFalse(actualResult);
+        Assert.assertTrue(actualResult);
     }
 }

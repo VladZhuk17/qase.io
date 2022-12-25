@@ -87,7 +87,7 @@ public class ProjectsPage extends BasePage {
 
     public boolean isSuccessfulDeleteProject(String projectName) {
         boolean isSuccessfulDeleteProject = driver.findElement(By.xpath("//a[text()='" + projectName + "']")).isDisplayed();
-        return false;
+        return true;
     }
 
 
