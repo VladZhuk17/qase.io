@@ -5,8 +5,8 @@
     <test name="Login Page Test">
         <classes>
             <class name="qase.io.tests.UI.LoginPageTest"/>
-            <parameter name="userEmail" value="vladzhuk091193@gmail.com"></parameter>
-            <parameter name="userPassword" value="Pp28092019"></parameter>
+            <parameter name="userEmail" value="wfortestw@gmail.com"></parameter>
+            <parameter name="userPassword" value="T72YPufVFi#S$3r"></parameter>
         </classes>
     </test>
     <test name="Project Page Test">
@@ -18,20 +18,12 @@
             <parameter name="projectForDelete" value="main"></parameter>
         </classes>
     </test>
-    <test name="Invite Page Test">
-        <classes>
-            <class name="qase.io.tests.UI.InvitesPageTest"/>
-            <parameter name="emailMember" value="main@mail.com"></parameter>
-            <parameter name="nameMember" value="Misha"></parameter>
-            <parameter name="roleTitleMember" value="Lead QA"></parameter>
-        </classes>
-    </test>
     <test name="Group Page Test">
         <classes>
             <class name="qase.io.tests.UI.GroupsPageTest"/>
-            <parameter name="groupTitle" value="research group"></parameter>
-            <parameter name="groupDescription" value="they investigate what has not been investigated"></parameter>
-            <parameter name="groupForDelete" value="research group"></parameter>
+            <parameter name="groupTitle" value="AQA17"></parameter>
+            <parameter name="groupDescription" value="AQA Engineer (Java) - online"></parameter>
+            <parameter name="groupForDelete" value="AQA17"></parameter>
         </classes>
     </test>
     <test name="Repository Page Test">

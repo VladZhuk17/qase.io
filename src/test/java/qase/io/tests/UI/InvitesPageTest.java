@@ -14,7 +14,10 @@ public class InvitesPageTest extends BaseTest {
     @BeforeClass
     public void login() {
         LoginPageService loginPageService = new LoginPageService();
-        User user = User.builder().email("vladzhuk091193@gmail.com").password("Pp28092019").build();
+        User user = User.builder()
+                .email("wfortestw@gmail.com")
+                .password("T72YPufVFi#S$3r")
+                .build();
         loginPageService.login(user);
     }
 

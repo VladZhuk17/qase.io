@@ -14,7 +14,10 @@ public class TagsPageTest {
     @BeforeClass
     public void login() {
         LoginPageService loginPageService = new LoginPageService();
-        User user = User.builder().email("vladzhuk091193@gmail.com").password("Pp28092019").build();
+        User user = User.builder()
+                .email("wfortestw@gmail.com")
+                .password("T72YPufVFi#S$3r")
+                .build();
         loginPageService.login(user);
     }
 
@@ -23,7 +26,8 @@ public class TagsPageTest {
     public void createNewTag(String tagName) {
         Tags tags = Tags.builder().tagName(tagName).build();
         TagsPageService tagsPageService = new TagsPageService();
-        boolean isSuccessfulCreateTag = tagsPageService.createNewTag(tags).isSuccessfulCreateTag(tags);
+        boolean isSuccessfulCreateTag = tagsPageService.createNewTag(tags)
+                .isSuccessfulCreateTag(tags);
         Assert.assertTrue(isSuccessfulCreateTag);
     }
 
@@ -32,8 +36,8 @@ public class TagsPageTest {
     public void deleteTag(String tagName){
         Tags tags = Tags.builder().tagName(tagName).build();
         TagsPageService tagsPageService = new TagsPageService();
-       boolean isSuccessfulDeleteTag = tagsPageService.deleteTag(tags).isSuccessfulDeleteTag(tags);
+       boolean isSuccessfulDeleteTag = tagsPageService.deleteTag(tags)
+               .isSuccessfulDeleteTag(tags);
        Assert.assertTrue(isSuccessfulDeleteTag);
     }
-
 }

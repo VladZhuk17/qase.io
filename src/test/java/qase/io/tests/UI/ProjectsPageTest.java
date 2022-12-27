@@ -16,14 +16,21 @@ public class ProjectsPageTest extends BaseTest {
     @BeforeClass
     public void login() {
         LoginPageService loginPageService = new LoginPageService();
-        User user = User.builder().email("vladzhuk091193@gmail.com").password("Pp28092019").build();
+        User user = User.builder()
+                .email("wfortestw@gmail.com")
+                .password("T72YPufVFi#S$3r")
+                .build();
         loginPageService.login(user);
     }
 
     @Test(description = "Create new project")
     @Parameters({"projectName", "projectCode", "projectsDescription"})
     public void verifyCreateNewProjectTest(String projectName, String projectCode, String projectsDescription) {
-        Project project = Project.builder().projectName(projectName).projectCode(projectCode).description(projectsDescription).build();
+        Project project = Project.builder()
+                .projectName(projectName)
+                .projectCode(projectCode)
+                .description(projectsDescription)
+                .build();
         projectPageService = new ProjectPageService();
         boolean actualProjectName = projectPageService.createNewProject(project)
                 .openProjectsPage()
@@ -34,9 +41,12 @@ public class ProjectsPageTest extends BaseTest {
     @Test
     @Parameters({"projectForDelete"})
     public void verifyDeleteProjectTest(String projectForDelete) {
-        Project project = Project.builder().projectName(projectForDelete).build();
+        Project project = Project.builder()
+                .projectName(projectForDelete)
+                .build();
         projectPageService = new ProjectPageService();
-        boolean actualResult = projectPageService.deleteProject(project).isSuccessfulDeleteProject(projectForDelete);
+        boolean actualResult = projectPageService.deleteProject(project)
+                .isSuccessfulDeleteProject(projectForDelete);
         Assert.assertTrue(actualResult);
     }
 }

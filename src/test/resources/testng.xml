@@ -2,13 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite thread-count="2" name="Smoke" parallel="classes">
-    <test name="Project Page Test">
+    <test name="Login Page Test">
         <classes>
-            <class name="qase.io.tests.UI.ProjectsPageTest"/>
-            <parameter name="projectName" value="main"></parameter>
-            <parameter name="projectCode" value="puma"></parameter>
-            <parameter name="projectsDescription" value="dfdsfsdf"></parameter>
-            <parameter name="projectForDelete" value="main"></parameter>
+            <class name="qase.io.tests.UI.LoginPageTest"/>
+            <parameter name="userEmail" value="wfortestw@gmail.com"></parameter>
+            <parameter name="userPassword" value="T72YPufVFi#S$3r"></parameter>
         </classes>
     </test>
 </suite>

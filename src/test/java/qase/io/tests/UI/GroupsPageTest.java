@@ -14,25 +14,35 @@ public class GroupsPageTest extends BaseTest{
     @BeforeClass
     public void login() {
         LoginPageService loginPageService = new LoginPageService();
-        User user = User.builder().email("vladzhuk091193@gmail.com").password("Pp28092019").build();
+        User user = User.builder()
+                .email("wfortestw@gmail.com")
+                .password("T72YPufVFi#S$3r")
+                .build();
         loginPageService.login(user);
     }
 
     @Test
     @Parameters({"groupTitle", "groupDescription"})
     public void verifyCreateNewGroupTest(String groupTitle, String groupDescription){
-        Group group = Group.builder().groupTitle(groupTitle).groupDescription(groupDescription).build();
+        Group group = Group.builder()
+                .groupTitle(groupTitle)
+                .groupDescription(groupDescription)
+                .build();
         GroupsPageService groupsPageService = new GroupsPageService();
-        boolean isSuccessfulCreateGroup = groupsPageService.createGroup(group).isSuccessfulCreateGroup(group);
+        boolean isSuccessfulCreateGroup = groupsPageService.createGroup(group)
+                .isSuccessfulCreateGroup(group);
         Assert.assertTrue(isSuccessfulCreateGroup);
     }
 
     @Test
     @Parameters({"groupForDelete"})
     public void verifyDeleteGroupTest(String groupForDelete){
-        Group group = Group.builder().groupTitle(groupForDelete).build();
+        Group group = Group.builder().
+                groupTitle(groupForDelete)
+                .build();
         GroupsPageService groupsPageService = new GroupsPageService();
-        boolean isSuccessfulDeleteGroup = groupsPageService.deleteGroup(group).isSuccessfulDeleteGroup(group);
+        boolean isSuccessfulDeleteGroup = groupsPageService.deleteGroup(group)
+                .isSuccessfulDeleteGroup(group);
         Assert.assertTrue(isSuccessfulDeleteGroup);
 
     }

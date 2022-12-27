@@ -21,6 +21,8 @@
         <lombok>1.18.12</lombok>
         <jackson-dataformat-yaml>2.14.1</jackson-dataformat-yaml>
         <log4j-core>2.19.0</log4j-core>
+        <gson>2.9.0</gson>
+        <rest-assured>5.1.1</rest-assured>
     </properties>
 
     <build>
@@ -100,6 +102,17 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j-core}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured}</version>
         </dependency>
     </dependencies>
 

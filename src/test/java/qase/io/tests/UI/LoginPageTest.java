@@ -15,7 +15,10 @@ public class LoginPageTest extends BaseTest{
     @Parameters({"userEmail", "userPassword"})
     public void verifyLoginTest(String userEmail, String userPassword){
         LoginPageService loginPageService = new LoginPageService();
-        User user = User.builder().email(userEmail).password(userPassword).build();
+        User user = User.builder()
+                .email(userEmail)
+                .password(userPassword)
+                .build();
         loginPageService.login(user);
         String actualText = driver.getCurrentUrl();
         String expectedText = URL_PROJECTS_PAGE;
