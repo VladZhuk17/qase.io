@@ -1,11 +1,14 @@
 package qase.io.tests.API;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import qase.io.API.adapters.DefectAdapter;
 import qase.io.API.models.Defect;
+import qase.io.UI.utils.TestListener;
 import static java.net.HttpURLConnection.HTTP_OK;
 
+@Listeners(TestListener.class)
 public class DefectTest {
 
     private String projectCode = "NP";
