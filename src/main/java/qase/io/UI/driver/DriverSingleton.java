@@ -25,6 +25,7 @@ public class DriverSingleton {
     }
 
     public void closeDriver() {
+        log.info("INFO: close Driver");
         try {
             driver.quit();
             driver = null;
