@@ -18,9 +18,11 @@ pipeline {
             // Get some code from a GitHub repository
             git branch: "${params.BRANCH}", url: 'https://github.com/VladZhuk17/qase.io.git'
 
+            // Run Maven on a Unix agent.
+            //sh "mvn clean test"
 
             // To run Maven on a Windows agent, use
-            bat "-Dbrowser.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test"
+            bat "mvn -Dmaven.test.failure.ignore=true -Dbrowser=${browser} -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test"
          }
 
          post {
