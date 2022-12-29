@@ -23,7 +23,7 @@ public class ProjectsPageTest extends BaseTest {
         loginPageService.login(user);
     }
 
-    @Test(description = "Create new project")
+    @Test(priority = 1, description = "Create new project")
     @Parameters({"projectName", "projectCode", "projectsDescription"})
     public void verifyCreateNewProjectTest(String projectName, String projectCode, String projectsDescription) {
         Project project = Project.builder()
@@ -32,21 +32,32 @@ public class ProjectsPageTest extends BaseTest {
                 .description(projectsDescription)
                 .build();
         projectPageService = new ProjectPageService();
-        boolean actualProjectName = projectPageService.createNewProject(project)
+        boolean isSuccessfulCreateProject = projectPageService.createNewProject(project)
                 .openProjectsPage()
-                .isSuccessfulCreateProject(project.getProjectName());
-        Assert.assertTrue(actualProjectName);
+                .isSuccessfulCreateProject(project);
+        Assert.assertTrue(isSuccessfulCreateProject);
     }
 
-    @Test
+    @Test (priority = 2)
+    @Parameters({"projectName", "projectCode","newProjectName","newProjectCode","newDescription"})
+    public void verifyUpdateProjectTest(String projectName, String projectCode, String newProjectName, String newProjectCode, String newDescription){
+        Project project = Project.builder()
+                .projectName(projectName)
+                .projectCode(projectCode)
+                .build();
+        boolean isSuccessfulUpdateProject = projectPageService.updateProject(project, newProjectName, newProjectCode, newDescription).isSuccessfulUpdateProject();
+        Assert.assertTrue(isSuccessfulUpdateProject);
+    }
+
+    @Test (priority = 3)
     @Parameters({"projectForDelete"})
     public void verifyDeleteProjectTest(String projectForDelete) {
         Project project = Project.builder()
                 .projectName(projectForDelete)
                 .build();
         projectPageService = new ProjectPageService();
-        boolean actualResult = projectPageService.deleteProject(project)
-                .isSuccessfulDeleteProject(projectForDelete);
-        Assert.assertTrue(actualResult);
+        boolean isSuccessfulDeleteProject = projectPageService.deleteProject(project)
+                .isSuccessfulDeleteProject(project);
+        Assert.assertTrue(isSuccessfulDeleteProject);
     }
 }

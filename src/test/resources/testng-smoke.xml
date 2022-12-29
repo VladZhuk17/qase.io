@@ -12,10 +12,16 @@
     <test name="Project Page Test">
         <classes>
             <class name="qase.io.tests.UI.ProjectsPageTest"/>
+
             <parameter name="projectName" value="main"></parameter>
-            <parameter name="projectCode" value="puma"></parameter>
-            <parameter name="projectsDescription" value="dfdsfsdf"></parameter>
-            <parameter name="projectForDelete" value="main"></parameter>
+            <parameter name="projectCode" value="FF"></parameter>
+            <parameter name="projectsDescription" value="aaaaaaaaa"></parameter>
+
+            <parameter name="newProjectName" value="alt"></parameter>
+            <parameter name="newProjectCode" value="ALT"></parameter>
+            <parameter name="newDescription" value="ffffffffff"></parameter>
+
+            <parameter name="projectForDelete" value="alt"></parameter>
         </classes>
     </test>
     <test name="Group Page Test">

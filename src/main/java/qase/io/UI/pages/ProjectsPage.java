@@ -22,17 +22,29 @@ public class ProjectsPage extends BasePage {
     @FindBy(xpath = "//textarea[@id='description-area']")
     private WebElement projectsDescriptionArea;
 
-    @FindBy(xpath = "//a[@class='defect-title']")
-    private WebElement projectsList;
-
     @FindBy(xpath = "//span[text()='Delete project']")
     private WebElement buttonAcceptDeleteProject;
 
+    @FindBy(xpath = "//a[text()='Settings']")
+    private WebElement projectSetting;
 
+    @FindBy(xpath = "//button[@type='submit']/span[@class='UdZcu9']")
+    private WebElement buttonSubmitUpdate;
+
+    private String projectNameOnPageXpath = "//a[text()='%s']";
+    private String projectDropdownButtonXpath = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr//a[@class='btn btn-dropdown']";
+    private String projectButtonDeleteXpath = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr/td[@class='text-end']//button";
+    private String projectButtonSettingsXpath = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr/td[@class='text-end']//div/a[contains(text(),'Setting')]";
+    private String messageIsSuccessfulDeleteProjectXpath = "//a[text()='%s']";
+    private String messageIsSuccessfulUpdateProjectXpath = "//span[text()='Project settings were successfully updated!']";
 
     public ProjectsPage openProjectsPage() {
         driver.get("https://app.qase.io/projects");
         return this;
+    }
+
+    public void clickOnButtonSubmitUpdate(){
+        buttonSubmitUpdate.click();
     }
 
     public ProjectsPage clickOnButtonCreateNewProject() {
@@ -63,15 +75,18 @@ public class ProjectsPage extends BasePage {
     }
 
     public ProjectsPage clickOnProjectDropdown(Project project) {
-        driver.findElement(By.xpath("//a[@class='defect-title'][contains(text(),'"
-                + project.getProjectName() + "')]/ancestor::tr//a[@class='btn btn-dropdown']")).click();
+        driver.findElement(By.xpath(String.format(projectDropdownButtonXpath, project.getProjectName()))).click();
         return this;
     }
 
+    public ProjectsPage clickOnProjectSetting(Project project){
+        driver.findElement(By.xpath(String.format(projectButtonSettingsXpath,project.getProjectName()))).click();
+        return this;
+
+    }
 
     public ProjectsPage clickOnButtonDelete(Project project) {
-        driver.findElement(By.xpath("//a[@class='defect-title'][contains(text(),'" + project.getProjectName()
-                + "')]/ancestor::tr/td[@class='text-end']//button")).click();
+        driver.findElement(By.xpath(String.format(projectButtonDeleteXpath, project.getProjectName()))).click();
         return this;
     }
 
@@ -80,15 +95,19 @@ public class ProjectsPage extends BasePage {
         return this;
     }
 
-    public boolean isSuccessfulCreateProject(String projectName) {
-        boolean isSuccessfulCreateProject = driver.findElement(By.xpath("//a[text()='" + projectName + "']")).isDisplayed();
+    public boolean isSuccessfulCreateProject(Project project) {
+        boolean isSuccessfulCreateProject = driver.findElement(By.xpath
+                (String.format(projectNameOnPageXpath, project.getProjectName()))).isDisplayed();
         return true;
     }
 
-    public boolean isSuccessfulDeleteProject(String projectName) {
-        boolean isSuccessfulDeleteProject = driver.findElement(By.xpath("//a[text()='" + projectName + "']")).isDisplayed();
+    public boolean isSuccessfulDeleteProject(Project project) {
+        boolean isSuccessfulDeleteProject = driver.findElement(By.xpath
+                (String.format(messageIsSuccessfulDeleteProjectXpath,project.getProjectName()))).isDisplayed();
         return true;
     }
-
-
+    public boolean isSuccessfulUpdateProject() {
+        boolean isSuccessfulDeleteProject = driver.findElement(By.xpath(messageIsSuccessfulUpdateProjectXpath)).isDisplayed();
+        return true;
+    }
 }
