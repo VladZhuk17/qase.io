@@ -8,6 +8,7 @@ import qase.io.UI.model.Group;
 import qase.io.UI.model.User;
 import qase.io.UI.services.GroupsPageService;
 import qase.io.UI.services.LoginPageService;
+import qase.io.UI.utils.Retry;
 
 public class GroupsPageTest extends BaseTest{
 
@@ -21,7 +22,7 @@ public class GroupsPageTest extends BaseTest{
         loginPageService.login(user);
     }
 
-    @Test
+    @Test(description = "create new group ", retryAnalyzer = Retry.class)
     @Parameters({"groupTitle", "groupDescription"})
     public void verifyCreateNewGroupTest(String groupTitle, String groupDescription){
         Group group = Group.builder()
@@ -34,7 +35,7 @@ public class GroupsPageTest extends BaseTest{
         Assert.assertTrue(isSuccessfulCreateGroup);
     }
 
-    @Test
+    @Test(description = "delete  group ", retryAnalyzer = Retry.class)
     @Parameters({"groupForDelete"})
     public void verifyDeleteGroupTest(String groupForDelete){
         Group group = Group.builder().

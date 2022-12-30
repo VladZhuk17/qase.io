@@ -35,7 +35,7 @@
     <test name="Repository Page Test">
         <classes>
             <class name="qase.io.tests.UI.RepositoryPageTest"/>
-            <parameter name="projectCode" value="NP"></parameter>
+            <parameter name="projectCode" value="MAINFFFF"></parameter>
             <parameter name="suiteName" value="new suite"></parameter>
             <parameter name="suiteNameForDelete" value="new suite"></parameter>
         </classes>

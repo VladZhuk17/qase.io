@@ -6,12 +6,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import qase.io.UI.model.User;
 import qase.io.UI.services.LoginPageService;
+import qase.io.UI.utils.Retry;
 
 public class LoginPageTest extends BaseTest{
 
     private static final String URL_PROJECTS_PAGE = "https://app.qase.io/projects";
 
-    @Test(description = "Log in a user")
+    @Test(description = "Log in a user", retryAnalyzer = Retry.class)
     @Parameters({"userEmail", "userPassword"})
     public void verifyLoginTest(String userEmail, String userPassword){
         LoginPageService loginPageService = new LoginPageService();
