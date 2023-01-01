@@ -13,15 +13,27 @@
         <classes>
             <class name="qase.io.tests.UI.ProjectsPageTest"/>
 
-            <parameter name="projectName" value="main"></parameter>
-            <parameter name="projectCode" value="FF"></parameter>
-            <parameter name="projectsDescription" value="aaaaaaaaa"></parameter>
+            <parameter name="projectName" value="New Project"></parameter>
+            <parameter name="projectCode" value="NP"></parameter>
+            <parameter name="projectsDescription" value="some description"></parameter>
 
-            <parameter name="newProjectName" value="alt"></parameter>
-            <parameter name="newProjectCode" value="ALT"></parameter>
-            <parameter name="newDescription" value="ffffffffff"></parameter>
 
-            <parameter name="projectForDelete" value="alt"></parameter>
+            <parameter name="projectNameForUpdate" value="New Project"></parameter>
+            <parameter name="projectCodeForUpdate" value="NP"></parameter>
+            <parameter name="newProjectName" value="update project"></parameter>
+            <parameter name="newProjectCode" value="UP"></parameter>
+            <parameter name="newDescription" value="new description"></parameter>
+
+            <parameter name="projectNameForDelete" value="update project"></parameter>
+            <parameter name="projectCodeForDelete" value="UP"></parameter>
+        </classes>
+    </test>
+    <test name="Repository Page Test">
+        <classes>
+            <class name="qase.io.tests.UI.RepositoryPageTest"/>
+            <parameter name="projectCode" value="TP"></parameter>
+            <parameter name="suiteName" value="new suite"></parameter>
+            <parameter name="suiteNameForDelete" value="new suite"></parameter>
         </classes>
     </test>
     <test name="Group Page Test">
@@ -32,18 +44,11 @@
             <parameter name="groupForDelete" value="AQA17"></parameter>
         </classes>
     </test>
-    <test name="Repository Page Test">
-        <classes>
-            <class name="qase.io.tests.UI.RepositoryPageTest"/>
-            <parameter name="projectCode" value="MAINFFFF"></parameter>
-            <parameter name="suiteName" value="new suite"></parameter>
-            <parameter name="suiteNameForDelete" value="new suite"></parameter>
-        </classes>
-    </test>
     <test name="Tags Page Test">
         <classes>
             <class name="qase.io.tests.UI.TagsPageTest"/>
             <parameter name="tagName" value="New Tag"></parameter>
         </classes>
     </test>
+
 </suite>
