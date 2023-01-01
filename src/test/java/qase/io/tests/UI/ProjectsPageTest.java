@@ -39,11 +39,11 @@ public class ProjectsPageTest extends BaseTest {
     }
 
     @Test (priority = 2, description = "Update the project")
-    @Parameters({"projectName", "projectCode","newProjectName","newProjectCode","newDescription"})
-    public void verifyUpdateProjectTest(String projectName, String projectCode, String newProjectName, String newProjectCode, String newDescription){
+    @Parameters({"projectNameForUpdate", "projectCodeForUpdate","newProjectName","newProjectCode","newDescription"})
+    public void verifyUpdateProjectTest(String projectNameForUpdate, String projectCodeForUpdate, String newProjectName, String newProjectCode, String newDescription){
         Project project = Project.builder()
-                .projectName(projectName)
-                .projectCode(projectCode)
+                .projectName(projectNameForUpdate)
+                .projectCode(projectCodeForUpdate)
                 .build();
         boolean isSuccessfulUpdateProject = projectPageService.updateProject(project, newProjectName, newProjectCode, newDescription).isSuccessfulUpdateProject();
         Assert.assertTrue(isSuccessfulUpdateProject);

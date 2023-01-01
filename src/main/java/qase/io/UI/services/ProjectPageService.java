@@ -28,7 +28,7 @@ public class ProjectPageService {
         projectsPage.clickOnProjectDropdown(project)
                 .clickOnProjectSetting(project)
                 .fillProjectNameField(newProjectName)
-                .fillProjectCodeField(project.getProjectCode())
+                .fillProjectCodeField(newProjectCode)
                 .fillProjectDescription(newDescription)
                 .clickOnButtonSubmitUpdate();
         return new ProjectsPage();
