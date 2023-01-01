@@ -50,10 +50,11 @@ public class ProjectsPageTest extends BaseTest {
     }
 
     @Test (priority = 3, description = "Delete the project")
-    @Parameters({"projectForDelete"})
-    public void verifyDeleteProjectTest(String projectForDelete) {
+    @Parameters({"projectNameForDelete", "projectCodeForDelete"})
+    public void verifyDeleteProjectTest(String projectNameForDelete, String projectCodeForDelete) {
         Project project = Project.builder()
-                .projectName(projectForDelete)
+                .projectName(projectNameForDelete)
+                .projectCode(projectCodeForDelete)
                 .build();
         projectPageService = new ProjectPageService();
         boolean isSuccessfulDeleteProject = projectPageService.deleteProject(project)

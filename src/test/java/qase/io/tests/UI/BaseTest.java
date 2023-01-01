@@ -1,7 +1,6 @@
 package qase.io.tests.UI;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import qase.io.UI.driver.DriverSingleton;
@@ -17,8 +16,8 @@ public class BaseTest {
         driver = DriverSingleton.getInstance().getDriver();
     }
 
-   @AfterClass(alwaysRun = true)
-    public void stopBrowser() {
-        DriverSingleton.getInstance().closeDriver();
-    }
+  // @AfterClass(alwaysRun = true)
+  //  public void stopBrowser() {
+ //       DriverSingleton.getInstance().closeDriver();
+ //   }
 }

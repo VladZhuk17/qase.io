@@ -35,7 +35,6 @@ public class ProjectsPage extends BasePage {
     private String projectDropdownButtonXpath = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr//a[@class='btn btn-dropdown']";
     private String projectButtonDeleteXpath = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr/td[@class='text-end']//button";
     private String projectButtonSettingsXpath = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr/td[@class='text-end']//div/a[contains(text(),'Setting')]";
-    private String messageIsSuccessfulDeleteProjectXpath = "//a[text()='%s']";
     private String messageIsSuccessfulUpdateProjectXpath = "//span[text()='Project settings were successfully updated!']";
 
     public ProjectsPage openProjectsPage() {
@@ -59,7 +58,7 @@ public class ProjectsPage extends BasePage {
     }
 
     public ProjectsPage fillProjectCodeField(String projectCode) {
-        inputProjectName.clear();
+        inputProjectCode.clear();
         inputProjectCode.sendKeys(projectCode);
         return this;
     }
@@ -103,7 +102,7 @@ public class ProjectsPage extends BasePage {
 
     public boolean isSuccessfulDeleteProject(Project project) {
         boolean isSuccessfulDeleteProject = driver.findElement(By.xpath
-                (String.format(messageIsSuccessfulDeleteProjectXpath,project.getProjectName()))).isDisplayed();
+                (String.format(projectNameOnPageXpath, project.getProjectName()))).isEnabled();
         return true;
     }
     public boolean isSuccessfulUpdateProject() {
