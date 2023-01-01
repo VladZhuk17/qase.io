@@ -22,7 +22,7 @@ public class GroupsPageTest extends BaseTest{
         loginPageService.login(user);
     }
 
-    @Test(description = "create new group ", retryAnalyzer = Retry.class)
+    @Test(description = "create a new group ", retryAnalyzer = Retry.class)
     @Parameters({"groupTitle", "groupDescription"})
     public void verifyCreateNewGroupTest(String groupTitle, String groupDescription){
         Group group = Group.builder()
@@ -35,7 +35,7 @@ public class GroupsPageTest extends BaseTest{
         Assert.assertTrue(isSuccessfulCreateGroup);
     }
 
-    @Test(description = "delete  group ", retryAnalyzer = Retry.class)
+    @Test(description = "delete the group ", retryAnalyzer = Retry.class)
     @Parameters({"groupForDelete"})
     public void verifyDeleteGroupTest(String groupForDelete){
         Group group = Group.builder().

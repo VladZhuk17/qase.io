@@ -23,7 +23,7 @@ public class ProjectsPageTest extends BaseTest {
         loginPageService.login(user);
     }
 
-    @Test(priority = 1, description = "Create new project")
+    @Test(priority = 1, description = "Create a new project")
     @Parameters({"projectName", "projectCode", "projectsDescription"})
     public void verifyCreateNewProjectTest(String projectName, String projectCode, String projectsDescription) {
         Project project = Project.builder()
@@ -38,7 +38,7 @@ public class ProjectsPageTest extends BaseTest {
         Assert.assertTrue(isSuccessfulCreateProject);
     }
 
-    @Test (priority = 2)
+    @Test (priority = 2, description = "Update the project")
     @Parameters({"projectName", "projectCode","newProjectName","newProjectCode","newDescription"})
     public void verifyUpdateProjectTest(String projectName, String projectCode, String newProjectName, String newProjectCode, String newDescription){
         Project project = Project.builder()
@@ -49,7 +49,7 @@ public class ProjectsPageTest extends BaseTest {
         Assert.assertTrue(isSuccessfulUpdateProject);
     }
 
-    @Test (priority = 3)
+    @Test (priority = 3, description = "Delete the project")
     @Parameters({"projectForDelete"})
     public void verifyDeleteProjectTest(String projectForDelete) {
         Project project = Project.builder()

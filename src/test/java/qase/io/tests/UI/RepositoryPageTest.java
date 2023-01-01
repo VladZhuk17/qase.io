@@ -22,7 +22,7 @@ public class RepositoryPageTest extends BaseTest {
         loginPageService.login(user);
     }
 
-    @Test
+    @Test(description = "Create a new suite")
     @Parameters({"projectCode", "suiteName"})
     public void verifyCreateNewSuiteTest(String projectCode, String suiteName) {
         Project project = Project.builder()
@@ -34,7 +34,7 @@ public class RepositoryPageTest extends BaseTest {
         Assert.assertTrue(isSuccessfulCreateSuite);
     }
 
-    @Test
+    @Test(description = "Delete the suite")
     @Parameters({"projectCode", "suiteNameForDelete"})
     public void verifyDeleteSuiteTest(String projectCode, String suiteNameForDelete) {
         Suite suite = Suite.builder()

@@ -21,7 +21,7 @@ public class TagsPageTest {
         loginPageService.login(user);
     }
 
-    @Test
+    @Test(description = "Create a new tag")
     @Parameters({"tagName"})
     public void verifyCreateNewTag(String tagName) {
         Tags tags = Tags.builder().tagName(tagName).build();
@@ -31,7 +31,7 @@ public class TagsPageTest {
         Assert.assertTrue(isSuccessfulCreateTag);
     }
 
-    @Test
+    @Test(description = "Delete the tag")
     @Parameters({"tagName"})
     public void verifyDeleteTag(String tagName){
         Tags tags = Tags.builder().tagName(tagName).build();
