@@ -23,7 +23,7 @@ public class TagsPageTest {
 
     @Test
     @Parameters({"tagName"})
-    public void createNewTag(String tagName) {
+    public void verifyCreateNewTag(String tagName) {
         Tags tags = Tags.builder().tagName(tagName).build();
         TagsPageService tagsPageService = new TagsPageService();
         boolean isSuccessfulCreateTag = tagsPageService.createNewTag(tags)
@@ -33,7 +33,7 @@ public class TagsPageTest {
 
     @Test
     @Parameters({"tagName"})
-    public void deleteTag(String tagName){
+    public void verifyDeleteTag(String tagName){
         Tags tags = Tags.builder().tagName(tagName).build();
         TagsPageService tagsPageService = new TagsPageService();
        boolean isSuccessfulDeleteTag = tagsPageService.deleteTag(tags)

@@ -43,7 +43,7 @@ public class DefectTest {
     }
 
     @Test (description = "update the defect", retryAnalyzer = Retry.class)
-    public void updateDefect() {
+    public void updateDefectTest () {
         Defect defect = Defect.builder().id(11).title("upDateTitle").actual_result("asd").severity(2).build();
         boolean status = new DefectAdapter().createDefect(projectCode, defect).body().path("status");
         Assert.assertTrue(status);
