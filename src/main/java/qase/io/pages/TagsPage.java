@@ -8,6 +8,9 @@ import qase.io.model.Tags;
 public class TagsPage extends BasePage {
 
     private static final String URL_TAGS_PAGE = "https://app.qase.io/workspace/tags";
+    private static final String TAG_NAME_ON_PAGE_XPATH = "//td[text()='%s']/ancestor::tr//a[@class='btn btn-dropdown']";
+    private static final String BUTTON_TAG_DROPDOWN_XPATH = "//td[text()='%s']/ancestor::tr//a[@class='btn btn-dropdown']";
+    private static final String BUTTON_DELETE_TEG_XPATH = "//td[text()='%s']/ancestor::tr//a[text()='Delete']";
 
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     private WebElement buttonCreateNewTag;
@@ -42,12 +45,12 @@ public class TagsPage extends BasePage {
     }
 
     public TagsPage clickOnTagsDropdown(Tags tags){
-        driver.findElement(By.xpath("//td[text()='"+tags.getTagName()+"']/ancestor::tr//a[@class='btn btn-dropdown']")).click();
+        driver.findElement(By.xpath(String.format(BUTTON_TAG_DROPDOWN_XPATH,tags.getTagName()))).click();
         return this;
     }
 
     public TagsPage clickOnTagsButtonDelete(Tags tags){
-        driver.findElement(By.xpath("//td[text()='"+tags.getTagName()+"']/ancestor::tr//a[text()='Delete']")).click();
+        driver.findElement(By.xpath(String.format(BUTTON_DELETE_TEG_XPATH,tags.getTagName()))).click();
         return this;
     }
 
@@ -57,14 +60,12 @@ public class TagsPage extends BasePage {
     }
 
     public boolean isSuccessfulCreateTag(Tags tags) {
-        boolean isSuccessfulCreateTag = driver.findElement(By.xpath("//td[text()='"
-                + tags.getTagName() + "']/ancestor::tr//a[@class='btn btn-dropdown']")).isDisplayed();
+        boolean isSuccessfulCreateTag = driver.findElement(By.xpath(String.format(TAG_NAME_ON_PAGE_XPATH,tags.getTagName()))).isDisplayed();
         return isSuccessfulCreateTag;
     }
 
     public boolean isSuccessfulDeleteTag(Tags tags) {
-        boolean isSuccessfulDeleteTag = driver.findElement(By.xpath("//td[text()='"
-                +tags.getTagName()+"']/ancestor::tr//a[@class='btn btn-dropdown']")).isDisplayed();
+        boolean isSuccessfulDeleteTag = driver.findElement(By.xpath(String.format(TAG_NAME_ON_PAGE_XPATH, tags.getTagName()))).isEnabled();
         return isSuccessfulDeleteTag;
     }
 }

@@ -8,6 +8,8 @@ import qase.io.model.Suite;
 
 public class RepositoryPage extends BasePage {
 
+    private static final String BUTTON_SUITE_SETTING_XPATH ="//a[text()='%s']//ancestor::div[@class='UReP3r']//i[@class='fa fa-ellipsis-h']";
+
     @FindBy(xpath = "//span[text()='Suite was successfully created.']")
     private WebElement textIsSuccessfullyCreateMessage;
 
@@ -68,8 +70,7 @@ public class RepositoryPage extends BasePage {
     }
 
     public RepositoryPage clickOnSettingSuite(Suite suite) {
-        driver.findElement(By.xpath("//a[text()='"
-                + suite.getSuiteName() + "']//ancestor::div[@class='UReP3r']//i[@class='fa fa-ellipsis-h']")).click();
+        driver.findElement(By.xpath(String.format(BUTTON_SUITE_SETTING_XPATH,suite.getSuiteName()))).click();
         return this;
     }
 
