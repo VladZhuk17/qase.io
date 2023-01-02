@@ -4,14 +4,14 @@
 <suite thread-count="2" name="Smoke" parallel="classes">
     <test name="Login Page Test">
         <classes>
-            <class name="qase.io.tests.UI.LoginPageTest"/>
+            <class name="qase.io.tests.ui.LoginPageTest"/>
             <parameter name="userEmail" value="wfortestw@gmail.com"></parameter>
             <parameter name="userPassword" value="T72YPufVFi#S$3r"></parameter>
         </classes>
     </test>
     <test name="Project Page Test">
         <classes>
-            <class name="qase.io.tests.UI.ProjectsPageTest"/>
+            <class name="qase.io.tests.ui.ProjectsPageTest"/>
 
             <parameter name="projectName" value="New Project"></parameter>
             <parameter name="projectCode" value="NP"></parameter>
@@ -30,7 +30,7 @@
     </test>
     <test name="Repository Page Test">
         <classes>
-            <class name="qase.io.tests.UI.RepositoryPageTest"/>
+            <class name="qase.io.tests.ui.RepositoryPageTest"/>
             <parameter name="projectCode" value="TP"></parameter>
             <parameter name="suiteName" value="new suite"></parameter>
             <parameter name="suiteNameForDelete" value="new suite"></parameter>
@@ -38,7 +38,7 @@
     </test>
     <test name="Group Page Test">
         <classes>
-            <class name="qase.io.tests.UI.GroupsPageTest"/>
+            <class name="qase.io.tests.ui.GroupsPageTest"/>
             <parameter name="groupTitle" value="AQA17"></parameter>
             <parameter name="groupDescription" value="AQA Engineer (Java) - online"></parameter>
             <parameter name="groupForDelete" value="AQA17"></parameter>
@@ -46,7 +46,7 @@
     </test>
     <test name="Tags Page Test">
         <classes>
-            <class name="qase.io.tests.UI.TagsPageTest"/>
+            <class name="qase.io.tests.ui.TagsPageTest"/>
             <parameter name="tagName" value="New Tag"></parameter>
         </classes>
     </test>
