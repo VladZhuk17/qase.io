@@ -9,24 +9,23 @@
             <parameter name="userPassword" value="T72YPufVFi#S$3r"></parameter>
         </classes>
     </test>
-    <test name="Project Page Test">
-        <classes>
-            <class name="qase.io.tests.ui.ProjectsPageTest"/>
+        <test name="Project Page Test">
+            <classes>
+                <class name="qase.io.tests.ui.ProjectsPageTest"/>
 
-            <parameter name="projectName" value="New Project"></parameter>
-            <parameter name="projectCode" value="NP"></parameter>
-            <parameter name="projectsDescription" value="some description"></parameter>
+                <parameter name="projectName" value="New Project"></parameter>
+                <parameter name="projectCode" value="NP"></parameter>
+                <parameter name="projectsDescription" value="some description"></parameter>
 
+                <parameter name="projectNameForUpdate" value="New Project"></parameter>
+                <parameter name="projectCodeForUpdate" value="NP"></parameter>
+                <parameter name="newProjectName" value="update project"></parameter>
+                <parameter name="newProjectCode" value="UP"></parameter>
+                <parameter name="newDescription" value="new description"></parameter>
 
-            <parameter name="projectNameForUpdate" value="New Project"></parameter>
-            <parameter name="projectCodeForUpdate" value="NP"></parameter>
-            <parameter name="newProjectName" value="update project"></parameter>
-            <parameter name="newProjectCode" value="UP"></parameter>
-            <parameter name="newDescription" value="new description"></parameter>
-
-            <parameter name="projectNameForDelete" value="update project"></parameter>
-            <parameter name="projectCodeForDelete" value="UP"></parameter>
-        </classes>
+                <parameter name="projectNameForDelete" value="update project"></parameter>
+                <parameter name="projectCodeForDelete" value="UP"></parameter>
+            </classes>
     </test>
     <test name="Repository Page Test">
         <classes>

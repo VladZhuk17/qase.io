@@ -1,10 +1,12 @@
 package qase.io.pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import qase.io.model.Group;
 
+@Log4j2
 public class GroupsPage extends BasePage {
 
     private static final String URL_GROUPS_PAGE = "https://app.qase.io/workspace/groups";
@@ -29,26 +31,31 @@ public class GroupsPage extends BasePage {
     private WebElement buttonDeleteGroup;
 
     public GroupsPage openGroupsPage() {
+        log.info("INFO: open group page");
         driver.get(URL_GROUPS_PAGE);
         return this;
     }
 
     public GroupsPage clickOnCreateNewGroup() {
+        log.info("INFO: click on button create a new group");
         buttonCreateNewGroup.click();
         return this;
     }
 
     public GroupsPage fillGroupTitle(String text) {
+        log.info("INFO: fill group title");
         inputGroupTitle.sendKeys(text);
         return this;
     }
 
     public GroupsPage fillTextareaGroupDescription(String text) {
+        log.info("INFO: fill text for group description");
         textareaGroupDescription.sendKeys(text);
         return this;
     }
 
     public GroupsPage clickOnButtonCreate() {
+        log.info("INFO: click on button create group");
         buttonCreate.click();
         return this;
     }

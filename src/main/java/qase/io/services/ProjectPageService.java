@@ -40,7 +40,9 @@ public class ProjectPageService {
         projectsPage = new ProjectsPage();
         projectsPage.openProjectsPage()
                 .clickOnProjectDropdown(project)
-                .clickOnButtonDelete(project).clickOnButtonAcceptDeleteProject();
+                .clickOnButtonDelete(project)
+                .clickOnButtonAcceptDeleteProject()
+                .openProjectsPage();
         return new ProjectsPage();
     }
 

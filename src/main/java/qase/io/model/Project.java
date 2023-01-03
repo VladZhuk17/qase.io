@@ -9,5 +9,4 @@ public class Project {
     private String projectName;
     private String projectCode;
     private String description;
-    
 }

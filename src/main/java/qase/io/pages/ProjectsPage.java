@@ -1,12 +1,14 @@
 package qase.io.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import qase.io.model.Project;
 
 public class ProjectsPage extends BasePage {
 
+    private static final String URL_PROJECT_PAGE = "https://app.qase.io/projects";
     private static final String PROJECT_NAME_ON_PAGE_XPATH = "//a[text()='%s']";
     private static final String PROJECT_DROPDOWN_BUTTON_XPATH = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr//a[@class='btn btn-dropdown']";
     private static final String PROJECT_BUTTON_DELETE_XPATH = "//a[@class='defect-title'][contains(text(),'%s')]/ancestor::tr/td[@class='text-end']//button";
@@ -39,7 +41,7 @@ public class ProjectsPage extends BasePage {
 
 
     public ProjectsPage openProjectsPage() {
-        driver.get("https://app.qase.io/projects");
+        driver.get(URL_PROJECT_PAGE);
         return this;
     }
 
@@ -102,9 +104,15 @@ public class ProjectsPage extends BasePage {
     }
 
     public boolean isSuccessfulDeleteProject(Project project) {
-        boolean isSuccessfulDeleteProject = driver.findElement(By.xpath
-                (String.format(PROJECT_NAME_ON_PAGE_XPATH, project.getProjectName()))).isEnabled();
+        boolean isSuccessfulDeleteProject;
+        try {
+            driver.findElement(By.xpath(String.format(PROJECT_NAME_ON_PAGE_XPATH, project.getProjectName())));
+            isSuccessfulDeleteProject = false;
+        } catch (NoSuchElementException e) {
+            isSuccessfulDeleteProject = true;
+        }
         return isSuccessfulDeleteProject;
+
     }
     public boolean isSuccessfulUpdateProject() {
         boolean messageIsSuccessfulUpdateProject = driver.findElement(By.xpath(MESSAGE_IS_SUCCESSFUL_UPDATE_PROJECT_XPATH)).isDisplayed();
