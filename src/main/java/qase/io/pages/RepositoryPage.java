@@ -1,11 +1,13 @@
 package qase.io.pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import qase.io.model.Project;
 import qase.io.model.Suite;
 
+@Log4j2
 public class RepositoryPage extends BasePage {
 
     private static final String BUTTON_SUITE_SETTING_XPATH ="//a[text()='%s']//ancestor::div[@class='UReP3r']//i[@class='fa fa-ellipsis-h']";
@@ -46,30 +48,36 @@ public class RepositoryPage extends BasePage {
     }
 
     public RepositoryPage clickOnButtonAddNewSuite() {
+        log.info("INFO: click on button add new suite");
         buttonAddNewSuite.click();
         return this;
     }
 
     public RepositoryPage clickOnDeleteSuite(){
+        log.info("INFO: click on button delete suite");
         buttonDeleteSuite.click();
         return this;
     }
 
     public RepositoryPage clickOnButtonSubmitDeleteSuite(){
+        log.info("INFO: click on button accept deletion suite");
         buttonSubmitDeleteSuite.click();
         return this;
     }
 
     public RepositoryPage fillSuiteName(Suite suite) {
+        log.info("INFO: fill suite name");
         inputSuiteName.sendKeys(suite.getSuiteName());
         return this;
     }
 
     public void clickOnButtonCreateSuite() {
+        log.info("INFO: click on button create suite");
         buttonCreateSuite.click();
     }
 
     public RepositoryPage clickOnSettingSuite(Suite suite) {
+        log.info("INFO: click on button suite setting");
         driver.findElement(By.xpath(String.format(BUTTON_SUITE_SETTING_XPATH,suite.getSuiteName()))).click();
         return this;
     }

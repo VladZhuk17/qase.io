@@ -1,11 +1,13 @@
 package qase.io.pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import qase.io.model.Project;
 
+@Log4j2
 public class ProjectsPage extends BasePage {
 
     private static final String URL_PROJECT_PAGE = "https://app.qase.io/projects";
@@ -46,53 +48,63 @@ public class ProjectsPage extends BasePage {
     }
 
     public void clickOnButtonSubmitUpdate(){
+        log.info("INFO: click on button submit update");
         buttonSubmitUpdate.click();
     }
 
     public ProjectsPage clickOnButtonCreateNewProject() {
+        log.info("INFO: click on button create new project");
         buttonCreateNewProject.click();
         return this;
     }
 
     public ProjectsPage fillProjectNameField(String projectName) {
+        log.info("INFO: fill project name field");
         inputProjectName.clear();
         inputProjectName.sendKeys(projectName);
         return this;
     }
 
     public ProjectsPage fillProjectCodeField(String projectCode) {
+        log.info("INFO: fill project code field");
         inputProjectCode.clear();
         inputProjectCode.sendKeys(projectCode);
         return this;
     }
 
     public ProjectsPage fillProjectDescription(String textDescriptionProject) {
+        log.info("INFO: fill project description");
         projectsDescriptionArea.clear();
         projectsDescriptionArea.sendKeys(textDescriptionProject);
         return this;
     }
 
     public void clickOnButtonCreate() {
+        log.info("INFO: click on button create");
         buttonCreate.click();
     }
 
     public ProjectsPage clickOnProjectDropdown(Project project) {
+        log.info("INFO: click on project dropdown");
         driver.findElement(By.xpath(String.format(PROJECT_DROPDOWN_BUTTON_XPATH, project.getProjectName()))).click();
         return this;
     }
 
     public ProjectsPage clickOnProjectSetting(Project project){
+        log.info("INFO: click on project setting");
         driver.findElement(By.xpath(String.format(PROJECT_BUTTON_SETTINGS_XPATH,project.getProjectName()))).click();
         return this;
 
     }
 
     public ProjectsPage clickOnButtonDelete(Project project) {
+        log.info("INFO: click on button delete");
         driver.findElement(By.xpath(String.format(PROJECT_BUTTON_DELETE_XPATH, project.getProjectName()))).click();
         return this;
     }
 
     public ProjectsPage clickOnButtonAcceptDeleteProject() {
+        log.info("INFO: click on button accept deletion project");
         buttonAcceptDeleteProject.click();
         return this;
     }
