@@ -1,14 +1,14 @@
 UI
-1. Verify successful log in with valid data
-2.1. Verify successful create new project
-2.2. Verify successful update project
-2.3. Verify successful delete project
-3.1. Verify successful create new group
-3.2. Verify successful delete group
-4.1. Verify successful create new suite
-4.2. Verify successful delete suite
-5.1. Verify successful create new tag
-5.2. Verify successful delete tag
+1. Verify successful logging in with valid data
+2.1. Verify successful creation of a new project
+2.2. Verify successful update of the project
+2.3. Verify successful deleting of the project
+3.1. Verify successful creation of a new group
+3.2. Verify successful deletion of the group
+4.1. Verify successful creation of a new suite
+4.2. Verify successful deletion of the suite
+5.1. Verify successful creation of a new tag
+5.2. Verify successful deletion of the tag
 
 API
 1. Verify status code get all defects
@@ -16,4 +16,3 @@ API
 3. Verify status code delete defect
 4. Verify status code get specific defect
 5. Verify status code update defect
-
