@@ -1,16 +1,12 @@
 package qase.io.tests.api;
 
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import qase.io.adapters.DefectAdapter;
 import qase.io.model.Defect;
 import qase.io.utils.Retry;
-import qase.io.utils.TestListener;
-
 import static java.net.HttpURLConnection.HTTP_OK;
 
-@Listeners(TestListener.class)
 public class DefectTest {
 
     private String projectCode = "TP";
@@ -30,7 +26,7 @@ public class DefectTest {
 
     @Test(description = "delete defect by ID", retryAnalyzer = Retry.class)
     public void deleteDefect() {
-        Defect defect = Defect.builder().id(5).build();
+        Defect defect = Defect.builder().id(6).build();
         boolean status = new DefectAdapter().deleteDefect(projectCode, defect).path("status");
         Assert.assertTrue(status);
     }

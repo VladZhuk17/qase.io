@@ -23,7 +23,8 @@ public class ProjectPageService {
     }
 
     @Step("Update project")
-    public ProjectsPage updateProject(Project project, String newProjectName, String newProjectCode, String newDescription){
+    public ProjectsPage updateProject(Project project, String newProjectName,
+                                      String newProjectCode, String newDescription){
         log.info("INFO: update the project");
         projectsPage.clickOnProjectDropdown(project)
                 .clickOnProjectSetting(project)

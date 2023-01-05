@@ -8,7 +8,7 @@ import qase.io.pages.TagsPage;
 @Log4j2
 public class TagsPageService {
 
-    @Step
+    @Step ("Create new tag")
     public TagsPage createNewTag(Tags tags) {
         log.info("INFO: create a new tag");
         TagsPage tagsPage = new TagsPage();
@@ -16,7 +16,7 @@ public class TagsPageService {
         return new TagsPage();
     }
 
-    @Step
+    @Step ("Delete tag" )
     public TagsPage deleteTag(Tags tags) {
         log.info("INFO: delete the tag");
         TagsPage tagsPage = new TagsPage();

@@ -12,7 +12,7 @@ UI
 
 API
 1. Verify status code get all defects
-2. Verify status code crete new defect
+2. Verify status code create new defect
 3. Verify status code delete defect
 4. Verify status code get specific defect
 5. Verify status code update defect
