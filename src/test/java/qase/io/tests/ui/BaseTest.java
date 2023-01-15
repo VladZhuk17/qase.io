@@ -4,7 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
-import qase.io.driver.DriverSingleton;
+import qase.io.model.driver.DriverSingleton;
 import qase.io.utils.TestListener;
 
 @Listeners(TestListener.class)
